@@ -1,30 +1,14 @@
 package curso;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Challenge1 {
 
     public static void main(String[] args) {
-            String textString = "";
-            textString = JOptionPane.showInputDialog("Ingresar cadena de caracter: ");
-            if (textString.equals("A")){
-                textString = "54";
-                System.out.println("Tipo A");
-            } else if (textString.equals("B")) {
-                textString = "08";
-                System.out.println("Tipo B");
-            }
-            else {
-                System.out.println("Cadena de caracter " + textString + " Invalida");
-            }
-
-            int[] numbers = new int[8];
-            for (int x=0;x<numbers.length;x++){
-                numbers[x] = (int) (Math.random()* 10);
-                textString = textString + numbers[x];
-
-            }
-            System.out.println("Cadena " + textString );
+        String textString = "";
+        textString = JOptionPane.showInputDialog("Ingresar cadena de caracter: ");
+        System.out.println(metodo1(textString));
 
             ArrayList<String> listAnimals = new ArrayList<String>();
             listAnimals.add("Micha");
@@ -35,16 +19,38 @@ public class Challenge1 {
             listAnimals.add("A");
             listAnimals.add("B");
 
-            for (String animals: listAnimals){
-                if (textString.equals(animals)== false){
-                    textString = "false";
-                }else {
-                    textString = "true";
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Digitar nombre de un animal:  ");
+            String animal = sc.next();
+        System.out.println(metodo2(animal, listAnimals));
+    }
 
-                }
-                System.out.println(Boolean.parseBoolean(animals));
+        public static String metodo1(String textString){
+            String result;
+            if (textString.equalsIgnoreCase("A")){
+                result = "54";
+            } else if (textString.equalsIgnoreCase("B")) {
+                result = "08";
+            }
+            else {
+                result = null;
+            }
 
+            int[] numbers = new int[8];
+            for (int x=0;x<numbers.length;x++){
+                numbers[x] = (int) (Math.random()* 10);
+                result = result + numbers[x];
+            }
+            return result;
+        }
+
+        public static boolean metodo2(String animal, ArrayList<String> listAnimals) {
+            if (listAnimals.contains(animal)){
+                return false;
+            }else {
+                return true;
             }
 
         }
+
 }
