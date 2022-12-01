@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.content-icon {
+  display: flex;
+}
+.content-title {
+  background-color: #efc6ef;
+  border-radius: 50px;
+}
